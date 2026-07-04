@@ -1,101 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>CSS Template</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-* {
-  box-sizing: border-box;
-}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ayush Dabhade | Learning Journey</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-start: #f5f7ff;
+      --bg-end: #e8f0ff;
+      --card-bg: rgba(255, 255, 255, 0.9);
+      --text-dark: #132238;
+      --text-soft: #5f6f8a;
+      --accent: #4f7cff;
+      --accent-dark: #315fd1;
+      --border: rgba(79, 124, 255, 0.16);
+    }
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
+    * { box-sizing: border-box; }
 
-/* Style the header */
-header {
-  background-color: #666;
-  padding: 30px;
-  text-align: center;
-  font-size: 35px;
-  color: yellow;
-}
+    body {
+      margin: 0;
+      min-height: 100dvh;
+      font-family: 'Inter', sans-serif;
+      color: var(--text-dark);
+      background: linear-gradient(135deg, var(--bg-start) 0%, var(--bg-end) 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      overflow-x: hidden;
+    }
 
-/* Create two columns/boxes that floats next to each other */
-nav {
-  float: left;
-  width: 30%;
-  height: 300px; /* only for demonstration, should be removed */
-  background: #ccc;
-  padding: 20px;
-}
+    .hero-card {
+      width: min(760px, 100%);
+      max-width: 760px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      box-shadow: 0 20px 60px rgba(22, 39, 76, 0.14);
+      padding: clamp(24px, 4vw, 48px);
+      text-align: center;
+      margin: 0 auto;
+    }
 
-/* Style the list inside the menu */
-nav ul {
-  list-style-type: none;
-  padding: 0;
-}
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(79, 124, 255, 0.1);
+      color: var(--accent-dark);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
 
-article {
-  float: left;
-  padding: 20px;
-  width: 70%;
-  background-color: #f1f1f1;
-  height: 300px; /* only for demonstration, should be removed */
-}
+    h1 {
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      line-height: 1.2;
+      margin: 0 0 10px;
+      font-weight: 700;
+    }
 
-/* Clear floats after the columns */
-section::after {
-  content: "";
-  display: table;
-  clear: both;
-}
+    .subtitle {
+      font-size: clamp(1rem, 2.3vw, 1.05rem);
+      color: var(--text-soft);
+      margin: 0 0 24px;
+      line-height: 1.7;
+    }
 
-/* Style the footer */
-footer {
-  background-color: #777;
-  padding: 10px;
-  text-align: center;
-  color: yellow;
-}
+    .content p {
+      font-size: clamp(0.95rem, 2vw, 1rem);
+      line-height: 1.8;
+      color: var(--text-soft);
+      margin: 0 0 14px;
+    }
 
-/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
-@media (max-width: 600px) {
-  nav, article {
-    width: 100%;
-    height: auto;
-  }
-}
-</style>
+    .button-row {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 18px;
+      min-height: 48px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      box-shadow: 0 8px 20px rgba(45, 79, 173, 0.12);
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-linkedin {
+      background: #0a66c2;
+      color: white;
+    }
+
+    .btn-linkedin:hover {
+      background: #004182;
+    }
+
+    .btn-github {
+      background: #111827;
+      color: white;
+    }
+
+    .btn-github:hover {
+      background: #030712;
+    }
+
+    .btn svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+
+    footer {
+      margin-top: 22px;
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      letter-spacing: 0.02em;
+      text-align: center;
+      width: 100%;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 12px 12px 22px;
+        justify-content: flex-start;
+      }
+
+      .hero-card {
+        border-radius: 18px;
+        padding: 22px 16px;
+        width: 100%;
+        border: 1px solid rgba(79, 124, 255, 0.22);
+        box-shadow: 0 16px 40px rgba(22, 39, 76, 0.12);
+      }
+
+      .eyebrow {
+        font-size: 0.72rem;
+        padding: 6px 10px;
+        margin-bottom: 14px;
+      }
+
+      h1 {
+        font-size: 1.75rem;
+      }
+
+      .subtitle {
+        margin-bottom: 16px;
+        font-size: 0.98rem;
+      }
+
+      .content p {
+        font-size: 0.94rem;
+        line-height: 1.7;
+        margin-bottom: 12px;
+      }
+
+      .button-row {
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 22px;
+      }
+
+      .btn {
+        width: 100%;
+        padding: 13px 15px;
+        min-height: 48px;
+      }
+
+      footer {
+        margin-top: 22px;
+        font-size: 0.85rem;
+        padding: 0 4px;
+      }
+    }
+  </style>
 </head>
 <body>
+  <main class="hero-card">
+    <div class="eyebrow">Junior     Developer Journey</div>
+    <h1>Welcome 👋</h1>
+    <p class="subtitle">Thank you for visiting my project.</p>
 
+    <div class="content">
+      <p>This application is part of my learning journey in software development and DevOps. I am building small, practical projects to strengthen my understanding of modern development tools and real-world workflows.</p>
+      <p>I am especially interested in learning how to use Docker, automate deployments, and work with cloud-based systems with confidence. Every project I build helps me grow one step further as a developer.</p>
+      <p>I am still learning, and I am grateful for the opportunity to improve through hands-on practice, patience, and curiosity.</p>
+    </div>
 
-<header>
-  <h2>Free DevOps Course By Abhishek</h2>
-</header>
+    <div class="button-row">
+      <a class="btn btn-linkedin" href="https://www.linkedin.com/in/ayush-dabhade-703156330" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.94 8.48a1.56 1.56 0 1 0 0-3.12 1.56 1.56 0 0 0 0 3.12ZM5.5 9.6h2.88V18H5.5V9.6Zm4.65 0h2.76v1.15h.04c.38-.72 1.32-1.48 2.72-1.48 2.91 0 3.44 1.91 3.44 4.4V18h-2.88v-7.38c0-1.76-.03-4.02-2.45-4.02-2.46 0-2.84 1.92-2.84 3.9V18H10.15V9.6Z"/></svg>
+        Connect on LinkedIn
+      </a>
+      <a class="btn btn-github" href="https://github.com/ayush1234-svg" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.4 7.86 10.93.58.11.79-.25.79-.56v-2.02c-3.2.69-3.88-1.39-3.88-1.39-.53-1.35-1.29-1.71-1.29-1.71-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.95.1-.74.4-1.25.73-1.54-2.55-.29-5.23-1.27-5.23-5.66 0-1.25.45-2.27 1.19-3.07-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.21-1.49 3.18-1.18 3.18-1.18.63 1.58.23 2.75.11 3.04.74.8 1.19 1.82 1.19 3.07 0 4.4-2.69 5.37-5.25 5.65.41.35.78 1.04.78 2.1v3.11c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+        View GitHub
+      </a>
+    </div>
+  </main>
 
-<section>
-  <nav>
-    <ul>
-      <li><a href="www.youtube.com/@AbhishekVeeramalla">YouTube</a></li>
-      <li><a href="www.linkedin.com/in/abhishek-veeramalla-77b33996/">LinkedIn</a></li>
-      <li><a href="https://telegram.me/abhishekveeramalla">Telegram</a></li>
-    </ul>
-  </nav>
-  
-  <article>
-    <h1>Agenda</h1>
-    <p>Learn DevOps with strong foundational knowledge and practical understanding</p>
-    <p>Please Share the Channel with your friends and colleagues</p>
-  </article>
-</section>
-
-<footer>
-  <p>@AbhishekVeeramalla</p>
-</footer>
-
+  <footer>Built with ❤️ by Ayush Dabhade</footer>
 </body>
 </html>
-
